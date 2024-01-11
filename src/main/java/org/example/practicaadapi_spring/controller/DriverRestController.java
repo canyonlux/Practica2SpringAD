@@ -4,14 +4,12 @@ import org.example.practicaadapi_spring.model.Driver;
 import org.example.practicaadapi_spring.service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/drivers")
+@RequestMapping("/api/drivers")
 
 public class DriverRestController {
     private final DriverService driverService;
@@ -21,9 +19,34 @@ public class DriverRestController {
         this.driverService = service;
     }
 
-    @GetMapping("/drivers")
-
-    public ResponseEntity <List<Driver>> getAll() {
-        return ResponseEntity.ok(driverService.getAllDrivers());
+    @GetMapping("/drivers/{code}")
+    public ResponseEntity<Driver> getByCode(@PathVariable String code) {
+        return this.driverService.getDriverByCode(code)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
-}
+    public ResponseEntity<Driver> create(@RequestBody Driver driver) {
+        if (driver.getDriverId() != null)
+            return ResponseEntity.badRequest().build();
+
+        this.driverService.saveDriver(driver);
+        return ResponseEntity.ok(driver);
+    }
+    @PostMapping("/drivers")
+
+
+    @PutMapping("/drivers")
+    public ResponseEntity<Driver> update(@RequestBody Driver driver) {
+        this.driverService.saveDriver(driver);
+        return ResponseEntity.ok(driver);
+
+    }
+
+    @DeleteMapping("/drivers/{code}")
+    public ResponseEntity<Driver> deleteByCode(@PathVariable String code) {
+                    this.driverService.deleteDriverByCode(code);
+                    return ResponseEntity.noContent().build();
+                }
+
+    }
+

@@ -14,7 +14,7 @@ public class Driver {
     @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "driverid")
-    private long driverId;
+    private Long driverId;
 
     @Column(unique = true)
     private String code;
