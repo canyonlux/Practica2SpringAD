@@ -8,11 +8,14 @@ import java.util.Optional;
 
 public interface DriverService {
 
-     List<Driver> getAllDrivers();
+    List<Driver> getAllDrivers();
 
-     Optional<Driver> getDriverByCode(String code);
+    Optional<Driver> getDriverByCode(String code);
 
-     void saveDriver(Driver driver);
+    //definicion metodo guardar driver
+    Driver saveDriver(Driver driver);
 
-     void deleteDriverByCode(String code);
+    //definicion metodo borrar driver por codigo
+    void deleteDriverByCode(String code);
+
 }
