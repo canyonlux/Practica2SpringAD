@@ -1,7 +1,8 @@
 package org.example.practicaadapi_spring.service;
 
-import org.api.miprimeraapirest.model.Constructor;
-import org.api.miprimeraapirest.repository.ConstructorRepository;
+
+import org.example.practicaadapi_spring.model.Constructor;
+import org.example.practicaadapi_spring.repository.ConstructorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,4 +37,7 @@ public class ConstructorServiceImpl implements ConstructorService {
     public void deleteConstructorByRef(String ref) {
         this.repository.deleteByRefIgnoreCase(ref);
     }
+
+
+
 }

@@ -1,5 +1,7 @@
 package org.example.practicaadapi_spring.controller;
 
+import org.example.practicaadapi_spring.model.Constructor;
+import org.example.practicaadapi_spring.service.ConstructorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

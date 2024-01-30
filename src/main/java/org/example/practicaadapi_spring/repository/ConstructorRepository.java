@@ -1,7 +1,7 @@
 package org.example.practicaadapi_spring.repository;
 
-import org.api.miprimeraapirest.model.Constructor;
-import org.api.miprimeraapirest.model.Driver;
+
+import org.example.practicaadapi_spring.model.Constructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 

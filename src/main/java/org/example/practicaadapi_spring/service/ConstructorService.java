@@ -1,7 +1,6 @@
 package org.example.practicaadapi_spring.service;
 
-import org.api.miprimeraapirest.model.Constructor;
-import org.api.miprimeraapirest.model.Driver;
+import org.example.practicaadapi_spring.model.Constructor;
 
 import java.util.List;
 import java.util.Optional;
