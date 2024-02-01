@@ -8,42 +8,46 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+// Servicio marcado con @Service para la gestión de la entidad 'Driver'
 @Service
 public class DriverServiceImpl implements DriverService{
 
+    // Repositorio para operaciones de base de datos con la entidad 'Driver'
     private final DriverRepository repository;
 
+    // Inyección de dependencias para el repositorio 'DriverRepository'
     @Autowired
     public DriverServiceImpl(DriverRepository repository){
         this.repository = repository;
     }
 
+    // Implementación del método para obtener todos los conductores
     @Override
     public List<Driver> getAllDrivers() {
+        // Utiliza el método findAll del repositorio para obtener todos los conductores
         return repository.findAll();
     }
 
-    //implementacion metodo buscar driver por ID
+    // Implementación del método para buscar un conductor por su código
     @Override
     public Optional<Driver> getDriverByCode(String code) {
+        // Utiliza el método findByCodeIgnoreCase del repositorio para buscar por código
         return repository.findByCodeIgnoreCase(code);
     }
 
-    //implementacion metodo guardar driver
+    // Implementación del método para guardar (crear o actualizar) un conductor
     @Override
     public Driver saveDriver(Driver driver) {
+        // Utiliza el método save del repositorio para guardar el conductor
         return repository.save(driver);
     }
 
-    //implementacion metodo borrar piloto por ID
+    // Implementación del método para eliminar un conductor por su código
     @Override
-    @Transactional
+    @Transactional // Asegura que la operación se ejecute dentro de una transacción
     public void deleteDriverByCode(String code) {
+        // Utiliza el método deleteByCode del repositorio para eliminar el conductor
         repository.deleteByCode(code);
     }
-
-
-
-
 
 }

@@ -9,15 +9,19 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+// Repositorio para la entidad 'Driver', extendiendo JpaRepository para funcionalidades CRUD básicas
 @Repository
 public interface DriverRepository extends JpaRepository<Driver, Long> {
 
-    //metodo buscar pilotos por su codigo
+    // Método para buscar un conductor por su código, ignorando mayúsculas/minúsculas
     Optional<Driver> findByCodeIgnoreCase(String code);
 
-    //metodo borrar driver por id
+    // Método para eliminar un conductor por su código
+    // @Transactional asegura que la operación se ejecute dentro de una transacción de base de datos
     @Transactional
+    // @Modifying indica que este método ejecuta una operación de modificación de base de datos
     @Modifying
+    // @Query define una consulta JPQL personalizada para eliminar un conductor basándose en su código
     @Query("DELETE FROM Driver d WHERE d.code = :code")
     void deleteByCode(String code);
 }
