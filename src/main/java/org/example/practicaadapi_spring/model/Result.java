@@ -23,8 +23,14 @@ public class Result {
     @JsonManagedReference
     private Driver driver;
 
-    private int grid;
+    @Column(name = "grid", nullable = false)
+    private Integer grid;
+
+    @Column(name = "position")
     private Integer position;
-    private int points;
+
+    @Column(name = "points", nullable = false)
+    private Integer points;
+
 
 }

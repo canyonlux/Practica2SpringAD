@@ -29,7 +29,7 @@ public class DriverRestController {
         // Devuelve la lista de conductores con un estado de respuesta HTTP 200 (OK)
         return ResponseEntity.ok(driverService.getAllDrivers());
     }
-
+//http://localhost:8080/api/drivers/alo
     // Maneja solicitudes GET para obtener un conductor por su código
     @GetMapping("/drivers/{code}")
     public ResponseEntity<Driver> getByCode(@PathVariable String code){

@@ -20,12 +20,24 @@ public class Circuit {
     @Column(unique = true, nullable = false)
     private String name;
 
+    @Column(name = "location")
     private String location;
+
+    @Column(name = "country")
     private String country;
-    private double lat;
-    private double lng;
-    private int alt;
+
+    @Column(name = "lat")
+    private Double lat;
+
+    @Column(name = "lng")
+    private Double lng;
+
+    @Column(name = "alt")
+    private Integer alt;
+
+    @Column(name = "url")
     private String url;
+
 
     @OneToOne(mappedBy = "circuit")
     @JsonIgnoreProperties("circuit")

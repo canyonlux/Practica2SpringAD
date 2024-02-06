@@ -1,6 +1,7 @@
 package org.example.practicaadapi_spring.service;
 
 
+import org.example.practicaadapi_spring.dto.ConstructorDTO;
 import org.example.practicaadapi_spring.model.Constructor;
 import org.example.practicaadapi_spring.repository.ConstructorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,10 @@ public class ConstructorServiceImpl implements ConstructorService {
     }
 
     @Override
-    public List<Constructor> getAllConstructors() {
-        return repository.findAll();
+    public List<ConstructorDTO> getAllConstructors() {
+        List <Constructor> constructors = repository.findAll();
+        return constructors.stream().map(ConstructorDTO::new).toList();
+
     }
 
     @Override

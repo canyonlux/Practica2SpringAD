@@ -1,5 +1,6 @@
 package org.example.practicaadapi_spring.controller;
 
+import org.example.practicaadapi_spring.dto.ConstructorDTO;
 import org.example.practicaadapi_spring.model.Constructor;
 import org.example.practicaadapi_spring.service.ConstructorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class ConstructorRestController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<Constructor>> getAll() {
+    public ResponseEntity<List<ConstructorDTO>> getAll() {
         return ResponseEntity.ok(constructorService.getAllConstructors());
     }
 
