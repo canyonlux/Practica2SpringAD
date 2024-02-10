@@ -1,5 +1,6 @@
 package org.example.practicaadapi_spring.controller;
 
+import org.example.practicaadapi_spring.dto.DriverPro;
 import org.example.practicaadapi_spring.model.Driver;
 import org.example.practicaadapi_spring.service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// Controlador REST para gestionar solicitudes relacionadas con entidades 'Driver'
 @RestController
-// Define la ruta base para todos los métodos de este controlador
 @RequestMapping("/api")
 public class DriverRestController {
 
@@ -23,7 +22,18 @@ public class DriverRestController {
         this.driverService = driverService;
     }
 
+
+
     // Maneja solicitudes GET para obtener todos los conductores
+
+    @GetMapping("/drivers/projection")
+    public ResponseEntity<List<DriverPro>> getAllDriversProjection() {
+        // Utiliza el servicio para obtener la lista de conductores con la proyección aplicada
+        List<DriverPro> drivers = driverService.findAllProjectedDrivers();
+        return ResponseEntity.ok(drivers);
+    }
+
+
     @GetMapping("/drivers")
     public ResponseEntity<List<Driver>> getAll(){
         // Devuelve la lista de conductores con un estado de respuesta HTTP 200 (OK)

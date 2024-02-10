@@ -1,6 +1,7 @@
 package org.example.practicaadapi_spring.service;
 
 import jakarta.transaction.Transactional;
+import org.example.practicaadapi_spring.dto.DriverPro;
 import org.example.practicaadapi_spring.model.Driver;
 import org.example.practicaadapi_spring.repository.DriverRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,12 @@ public class DriverServiceImpl implements DriverService{
 
     // Inyección de dependencias para el repositorio 'DriverRepository'
     @Autowired
+    private DriverRepository driverRepository;
+
+    public List<DriverPro> findAllProjectedDrivers() {
+        return repository.findAllProjectedBy();
+    }
+
     public DriverServiceImpl(DriverRepository repository){
         this.repository = repository;
     }

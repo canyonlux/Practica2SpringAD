@@ -1,17 +1,21 @@
 package org.example.practicaadapi_spring.repository;
 
 import jakarta.transaction.Transactional;
+import org.example.practicaadapi_spring.dto.DriverPro;
 import org.example.practicaadapi_spring.model.Driver;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 // Repositorio para la entidad 'Driver', extendiendo JpaRepository para funcionalidades CRUD básicas
 @Repository
 public interface DriverRepository extends JpaRepository<Driver, Long> {
+
+    List<DriverPro> findAllProjectedBy();
 
     // Método para buscar un conductor por su código, ignorando mayúsculas/minúsculas
     Optional<Driver> findByCodeIgnoreCase(String code);
