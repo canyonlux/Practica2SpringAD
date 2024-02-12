@@ -6,7 +6,8 @@ import java.util.function.Function;
 
 
 @Service
-public class ConstructorDtoMapper implements Function<Constructor, ConstructorDTO> { //
+public class ConstructorDtoMapper implements Function<Constructor, ConstructorDTO> {
+    // Clase que mapea un objeto de tipo 'Constructor' a un objeto de tipo 'ConstructorDTO'
 
     @Override
     public ConstructorDTO apply(Constructor constructor) {

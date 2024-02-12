@@ -23,7 +23,7 @@ public class Constructor {
     private String nationality;
     private String url;
 
-    @OneToMany(mappedBy = "constructor" , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "constructor" , cascade = CascadeType.ALL)  // Mapea la relación basada en el campo 'constructor' en 'Driver'
     @JsonIgnoreProperties("constructor")
     private List<Driver> drivers;
 

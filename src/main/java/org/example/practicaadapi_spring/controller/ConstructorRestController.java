@@ -19,7 +19,8 @@ public class ConstructorRestController {
         this.constructorService = service;
     }
 
-    @GetMapping("")
+    
+    @GetMapping("") //
     public ResponseEntity<List<ConstructorDTO>> getAll() {
         return ResponseEntity.ok(constructorService.getAllConstructors());
     }
